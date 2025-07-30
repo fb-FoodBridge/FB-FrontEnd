@@ -3,7 +3,7 @@ import AppRouter from "./routes/routers";
 
 function App() {
   return (
-     <>
+    <>
       <AppRouter />
       <ToastContainer
         position="top-center"
