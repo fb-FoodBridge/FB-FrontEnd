@@ -16,19 +16,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22'
-          # ⚠️ no cache: 'pnpm' because pnpm is not installed yet
 
       - name: Install pnpm globally using npm
         run: npm install -g pnpm
 
       - name: Verify pnpm is installed and in PATH
-        run: pnpm -v
+        run: npm -v
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Install Vercel CLI globally using pnpm
-        run: pnpm add -g vercel
+        run: npm add -g vercel
 
       - name: Deploy to Vercel
         run: vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
