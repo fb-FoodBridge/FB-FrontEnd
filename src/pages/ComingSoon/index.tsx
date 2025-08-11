@@ -34,7 +34,7 @@ export default function ComingSoon() {
         className="w-full h-full absolute object-cover"
       />
       <div className="relative z-10 flex flex-col items-center text-center gap-8 w-full px-2">
-        <h1 className="font-bold text-black text-[40px] md:text-8xl text-orange font-['Nourd-Bold']">
+        <h1 className="font-bold text-black text-[40px] md:text-8xl text-orange font-nourd-bold">
           FOOD<span className="text-[#FDD835]">BRIDGE</span>
         </h1>
         <h5 className="font-semibold text-[#212121] text-[24px] md:text-[32px] inter">
