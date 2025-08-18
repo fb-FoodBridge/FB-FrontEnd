@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+* {
+    font-family: "Inter", sans-serif;
+}
+
 @font-face {
     font-family: 'Nourd Bold';
     src: url('../assets/fonts/nourd_bold.ttf') format('truetype');
