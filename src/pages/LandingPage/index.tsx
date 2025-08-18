@@ -1,8 +1,9 @@
+import HeroSection from "../../template/LandingPage/HeroSection";
 
 export default function LandingPage() {
   return (
-    <main>
-        <h1 className="font-nourd-bold">Landing Page</h1>
+    <main className="w-full justify-center flex">
+        <HeroSection />
     </main>
   )
 }
