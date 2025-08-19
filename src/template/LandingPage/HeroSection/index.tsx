@@ -1,6 +1,6 @@
 import { Building2, ChefHat } from "lucide-react";
 import { Button } from "../../../components/ui/button";
-import { illustrationHeroSection } from "../../../assets/images/illustrations";
+import { illustrationHeroSection } from "../../../assets/images";
 import SplitText from "../../../lib/ReactBits/SplitText/SplitText";
 
 export default function HeroSection() {
@@ -36,10 +36,18 @@ export default function HeroSection() {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-4 mt-8 w-full lg:w-fit">
-          <Button variant={"gray"} size={"fit"} className="w-full lg:w-fit lg:h-fit">
+          <Button
+            variant={"gray"}
+            size={"fit"}
+            className="w-full lg:w-fit lg:h-fit"
+          >
             Restaurantes <ChefHat size={16} fill="#fff" color="#000" />
           </Button>
-          <Button variant={"secondary"} size={"fit"} className="w-full lg:w-fit lg:h-fit">
+          <Button
+            variant={"secondary"}
+            size={"fit"}
+            className="w-full lg:w-fit lg:h-fit"
+          >
             Organizações <Building2 size={16} fill="#fff" color="#000" />
           </Button>
         </div>

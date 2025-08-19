@@ -1,5 +1,5 @@
 import { Send } from "lucide-react";
-import { illustrationComingSoon } from "../../assets/images/illustrations";
+import { illustrationComingSoon } from "../../assets/images";
 import { Button } from "../../components/ui/button";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
