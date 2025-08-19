@@ -1,3 +1,4 @@
+import AboutSection from "../../template/LandingPage/AboutSection";
 import HeroSection from "../../template/LandingPage/HeroSection";
 import MockupSection from "../../template/LandingPage/MockupSection";
 
@@ -6,6 +7,7 @@ export default function LandingPage() {
     <main className="w-full items-center flex flex-col">
         <HeroSection />
         <MockupSection />
+        <AboutSection />
     </main>
   )
 }
