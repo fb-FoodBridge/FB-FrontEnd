@@ -1,16 +1,16 @@
 import type { HeaderProps } from "../../interfaces/componentes/Header";
 
-export const navData: HeaderProps["navData"][] = [
+export const navData: HeaderProps[] = [
     {
         label: "Sobre nós",
-        href: "",
+        scroolTo: "#about",
     },
     {
-        label: "FAQ's",
-        href: "",
+        label: "FAQ''s",
+        scroolTo: "#faq",
     },
     {
         label: "Contato",
-        href: "",
+        scroolTo: "#contact",
     }
 ];

@@ -2,10 +2,11 @@ import { Building2, ChefHat } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { illustrationHeroSection } from "../../../assets/images";
 import SplitText from "../../../lib/ReactBits/SplitText/SplitText";
+import {motion} from "motion/react"
 
 export default function HeroSection() {
   return (
-    <section className="flex flex-col-reverse lg:flex-row max-w-[1440px] justify-between items-start lg:items-center py-16 lg:px-12 px-6 gap-12">
+    <motion.section initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1}} className="flex flex-col-reverse lg:flex-row max-w-[1440px] justify-between items-start lg:items-center py-16 lg:px-12 px-6 gap-12">
       <div>
         <div className="flex flex-col gap-4">
           <p className="italic font-medium">
@@ -58,6 +59,6 @@ export default function HeroSection() {
         className="w-[100%] lg:w-[50%] h-auto"
         alt="Ilustração onde duas pessoas estão sentadas em uma mesa demonstrando uma certa confiança ao apresentar a marca da FOODBRIDGE"
       />
-    </section>
+    </motion.section>
   );
 }

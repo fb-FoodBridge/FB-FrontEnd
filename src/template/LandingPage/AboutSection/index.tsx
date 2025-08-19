@@ -1,9 +1,10 @@
 import Card from "../../../components/Card";
 import { aboutSectionData } from "./data";
+import {motion} from 'motion/react'
 
 export default function AboutSection() {
   return (
-    <section className="max-w-[1440px] flex flex-col gap-10 xl:px-12 xl:py-8 py-16 px-4 md:px-6">
+    <motion.section id="about" initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{duration: 1}} className="max-w-[1440px] flex flex-col gap-10 xl:px-12 xl:py-8 py-16 px-4 md:px-6">
       <h2 className="text-5xl text-center font-medium">
         Sobre a{" "}
         <span className="font-semibold text-5xl">
@@ -26,6 +27,6 @@ export default function AboutSection() {
           <Card {...aboutSectionData.fourth} />
         </div>
       </article>
-    </section>
+    </motion.section>
   );
 }
