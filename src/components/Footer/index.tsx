@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="flex flex-col items-start justify-between p-12 bg-[#212121] text-white gap-8">
       <div className="flex flex-col xl:flex-row justify-between w-full">
-        <h4 className="font-bold text-white text-4xl lg:mb-8">
+        <h4 className="font-bold text-white text-4xl mb-8 xl:mb-0">
           FOOD<span className="text-[#FDD835]">BRIDGE</span>
         </h4>
         <div className="flex flex-col gap-8 text-white font-medium border-t-1 border-white border-b-1 py-8 xl:border-none xl:py-0">

@@ -1,5 +1,5 @@
 export {default as illustrationComingSoon } from './illustrations/illustrationcomingsoon.webp';
-export {default as illustrationHeroSection } from './illustrations/illustrationHeroSection.svg';
+export {default as illustrationHeroSection } from './illustrations/illustrationherosection.webp';
 
 export {default as mockupCellPhone} from "./mockups/cellphone.png"
 export {default as mockupPC} from "./mockups/pc.png"

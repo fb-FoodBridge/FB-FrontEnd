@@ -15,7 +15,7 @@ export default function Header() {
       <nav className="hidden lg:flex items-center gap-16 inter text-white font-medium relative text-[20px]">
         {navData.map((item, key) => (
           <a
-          href="#about"
+            href={item.scroolTo}
             key={key}
             className={`${linkUnderlineAnimation} relative`}
           >
