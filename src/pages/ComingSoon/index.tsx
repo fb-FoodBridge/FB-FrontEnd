@@ -1,5 +1,4 @@
 import { Send } from "lucide-react";
-import { illustrationComingSoon } from "../../assets/images";
 import { Button } from "../../components/ui/button";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -29,7 +28,6 @@ export default function ComingSoon() {
   return (
     <main className="flex flex-col items-center justify-center h-screen w-screen bg-gray-100 relative">
       <img
-        src={illustrationComingSoon}
         alt="Ilustração com um blur de fundo"
         className="w-full h-full absolute object-cover"
       />

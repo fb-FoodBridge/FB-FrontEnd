@@ -57,7 +57,8 @@ export default function HeroSection() {
 
       <img
         src={illustrationHeroSection}
-        className="w-[100%] lg:w-[50%] h-auto"
+        loading="lazy"
+        className="w-full lg:w-[50%] lg:h-[50%]"
         alt="Ilustração onde duas pessoas estão sentadas em uma mesa demonstrando uma certa confiança ao apresentar a marca da FOODBRIDGE"
       />
     </section>
