@@ -6,11 +6,11 @@ export default function WhyChooseUsSection() {
   return (
     <section className="flex flex-col lg:flex-row max-w-[1440px] justify-between items-start lg:items-center py-16 lg:px-12 px-6 gap-20">
       <img
-        className="hidden xl:block"
+        className="hidden lg:block w-full lg:w-[50%] lg:h-[50%]"
         src={illustrationWhyChooseUs}
         alt="Ilustração da seção 'Porque nos escolher?' que mostra ajudando um ao outro com alimento, que é o nosso objetivo"
       />
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-10 lg:gap-16">
         <h2 className="font-bold text-5xl">Porque nos escolher?</h2>
         <p>
           A FoodBridge conecta quem tem alimentos excedentes a quem precisa,
