@@ -1,6 +1,7 @@
 import OptionCategory from "../../components/OptionCategory";
 import OptionFaq from "../../components/OptionFaq";
 import AboutSection from "../../template/LandingPage/AboutSection";
+import FaqSection from "../../template/LandingPage/FaqSection";
 import HeroSection from "../../template/LandingPage/HeroSection";
 import WhyChooseUsSection from "../../template/LandingPage/WhyChooseUsSection";
 
@@ -10,8 +11,7 @@ export default function LandingPage() {
       <HeroSection />
       <AboutSection />
       <WhyChooseUsSection />
-      <OptionCategory label="FAQ" type="restaurant" />
-      <OptionFaq question="What is FoodBridge?" answer="FoodBridge is a platform that connects restaurants with customers." type="restaurant"  />
+      <FaqSection />
     </main>
   );
 }
