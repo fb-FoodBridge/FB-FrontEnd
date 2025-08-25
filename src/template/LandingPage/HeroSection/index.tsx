@@ -6,7 +6,7 @@ import SplitText from "../../../lib/ReactBits/SplitText/SplitText";
 export default function HeroSection() {
   return (
     <section
-      className="flex flex-col-reverse lg:flex-row max-w-[1440px] justify-between items-start lg:items-center py-16 lg:px-12 px-6 gap-12"
+      className="flex flex-col-reverse lg:flex-row w-full max-w-[1440px] justify-between items-start lg:items-center py-16 lg:px-12 px-6 gap-12"
     >
       <div>
         <div className="flex flex-col gap-4">

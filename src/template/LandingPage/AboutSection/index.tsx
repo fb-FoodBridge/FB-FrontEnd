@@ -23,7 +23,7 @@ export default function AboutSection() {
         </div>
         <div className="w-full flex flex-col xl:flex-row gap-6">
           <Card {...aboutSectionData.third} />
-          <Card {...aboutSectionData.fourth} />
+          <Card {...aboutSectionData.fourth}  />
         </div>
       </article>
     </section>

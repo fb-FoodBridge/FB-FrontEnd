@@ -30,6 +30,16 @@ export const faqSectionData: FaqSectionProps = {
             answer: "Quais tipos de alimentos podem ser doados?",
             question: "Quais tipos de alimentos podem ser doados?",
             type: "donation"
+        },
+        {
+            answer: "Quais tipos de alimentos podem ser doados?",
+            question: "Quais tipos de alimentos podem ser doados?",
+            type: "donation"
+        },
+        {
+            answer: "Quais tipos de alimentos podem ser doados?",
+            question: "Quais tipos de alimentos podem ser doados?",
+            type: "donation"
         }
     ]
 } 

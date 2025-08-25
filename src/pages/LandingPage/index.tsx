@@ -1,6 +1,5 @@
-import OptionCategory from "../../components/OptionCategory";
-import OptionFaq from "../../components/OptionFaq";
 import AboutSection from "../../template/LandingPage/AboutSection";
+import ContactSection from "../../template/LandingPage/ContactSection";
 import FaqSection from "../../template/LandingPage/FaqSection";
 import HeroSection from "../../template/LandingPage/HeroSection";
 import WhyChooseUsSection from "../../template/LandingPage/WhyChooseUsSection";
@@ -12,6 +11,7 @@ export default function LandingPage() {
       <AboutSection />
       <WhyChooseUsSection />
       <FaqSection />
+      <ContactSection />
     </main>
   );
 }

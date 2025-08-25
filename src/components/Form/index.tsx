@@ -1,0 +1,25 @@
+import type { FormProps } from "../../interfaces/componentes/Input";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+
+export default function Form({ ...props }: FormProps) {
+  return (
+    <form action={props.onSubmit} className="w-full flex flex-col gap-4 h-fit">
+      {props.fields.map((field, index) => (
+        <div key={index} className="flex flex-col w-full gap-2 items-start">
+          <p className="font-medium">{field.label}</p>
+          <Input
+            type={field.type}
+            placeholder={field.placeholder}
+            value={field.value}
+            isMessageField={field.isMessageField}
+          />
+        </div>
+      ))}
+
+      <Button className="mt-4 text-[16px]" size={"lg"}  variant={"default"}>
+        {props.buttonText}
+      </Button>
+    </form>
+  );
+}
