@@ -1,4 +1,4 @@
-import type { TypeCategory } from "../../../types";
+import type { TypeCategory } from "../../../types/components";
 
 export interface OptionFaqProps {
   question: string;

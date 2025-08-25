@@ -4,7 +4,7 @@ import { Input } from "../ui/input";
 
 export default function Form({ ...props }: FormProps) {
   return (
-    <form action={props.onSubmit} className="w-full flex flex-col gap-4 h-fit">
+    <form onSubmit={props.onSubmit} className="w-full flex flex-col gap-4 h-fit">
       {props.fields.map((field, index) => (
         <div key={index} className="flex flex-col w-full gap-2 items-start">
           <p className="font-medium">{field.label}</p>
@@ -13,6 +13,7 @@ export default function Form({ ...props }: FormProps) {
             placeholder={field.placeholder}
             value={field.value}
             isMessageField={field.isMessageField}
+            onChange={field.onChange}
           />
         </div>
       ))}
