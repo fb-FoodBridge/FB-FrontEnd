@@ -12,7 +12,7 @@ export default function OptionFaq({ ...props }: OptionFaqProps) {
       <div className="w-full h-[1px] rounded-full bg-[#212121]"></div>
 
       <div className="w-full flex gap-4 justify-between py-3 ">
-        <p className="font-medium text-[16px]">{props.question}</p>
+        <p className="font-medium text-[20px]">{props.question}</p>
         <ChevronDown
           size={24}
           color="#000"
