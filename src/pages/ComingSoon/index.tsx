@@ -26,19 +26,16 @@ export default function ComingSoon() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen w-screen bg-gray-100 relative">
-      <img
-        alt="Ilustração com um blur de fundo"
-        className="w-full h-full absolute object-cover"
-      />
+    <main className="flex flex-col items-center justify-center h-screen w-screen bg-[#212121] relative">
+    
       <div className="relative z-10 flex flex-col items-center text-center gap-8 w-full px-2">
-        <h1 className="font-bold text-black text-[40px] md:text-8xl text-orange font-nourd-bold">
+        <h1 className="font-bold text-white text-[40px] md:text-8xl text-orange font-nourd-bold">
           FOOD<span className="text-[#FDD835]">BRIDGE</span>
         </h1>
-        <h5 className="font-semibold text-[#212121] text-[24px] md:text-[32px] inter">
+        <h5 className="font-semibold text-white text-[24px] md:text-[32px] inter">
           Vamos Lançar em breve!
         </h5>
-        <p className="text-[#212121] inter font-semibold text-[20px] md:text-[24px]">
+        <p className="text-white inter font-semibold text-[20px] md:text-[24px]">
           Estamos construindo algo incrível. Deixe seu e-mail e seja o primeiro
           a saber quando lançarmos!
         </p>
@@ -47,7 +44,7 @@ export default function ComingSoon() {
           onSubmit={handleSubmit}
           className={`flex ${
             screenWidth >= 768
-              ? "flex-row w-[62%] h-[60px] items-center justify-between border border-[#212121] rounded-[8px]"
+              ? "flex-row w-[62%] h-[60px] items-center justify-between border border-white rounded-[8px]"
               : "flex-col w-full gap-8"
           } bg-transparent`}
         >
@@ -57,16 +54,16 @@ export default function ComingSoon() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={`placeholder:text-[20px] placeholder:text-[#3D3D3D] placeholder:font-semibold w-full ${
+            className={`placeholder:text-[20px] placeholder:text-[#fff] placeholder:font-semibold w-full ${
               screenWidth >= 768
                 ? "ml-6"
-                : "pl-6 h-[60px] border border-[#212121] rounded-[8px]"
+                : "pl-6 h-[60px] border border-[#fff] rounded-[8px]"
             }`}
           />
           <Button
             type="submit"
-            variant={"default"}
-            className={`bg-[#212121] ${
+            variant={"secondary"}
+            className={` ${
               screenWidth >= 768 ? "h-full" : "h-[60px] w-full"
             }`}
           >

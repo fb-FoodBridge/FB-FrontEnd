@@ -6,7 +6,7 @@ export const navData: HeaderProps[] = [
         scroolTo: "#about",
     },
     {
-        label: "FAQ''s",
+        label: "FAQ's",
         scroolTo: "#faq",
     },
     {

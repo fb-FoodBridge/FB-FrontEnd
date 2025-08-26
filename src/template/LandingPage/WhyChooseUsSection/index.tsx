@@ -4,7 +4,7 @@ import { illustrationWhyChooseUs } from "../../../assets/images";
 
 export default function WhyChooseUsSection() {
   return (
-    <section className="flex flex-col lg:flex-row max-w-[1440px] justify-between items-start lg:items-center py-16 lg:px-12 px-6 gap-20">
+    <section className="flex flex-col lg:flex-row max-w-[1440px] justify-between items-start lg:items-center py-16 lg:px-12 px-4 gap-20">
       <img
         className="hidden lg:block w-full lg:w-[50%] lg:h-[50%]"
         src={illustrationWhyChooseUs}
