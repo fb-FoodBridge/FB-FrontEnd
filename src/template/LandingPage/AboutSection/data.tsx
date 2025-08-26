@@ -1,5 +1,5 @@
 import { BellRing, HandHeart, MapPinned, Truck } from "lucide-react";
-import type { CardProps } from "../../../interfaces/componentes/Card";
+import type { CardProps } from "../../../interfaces/components/Card";
 
 export interface aboutSectionProps {
     first: CardProps;

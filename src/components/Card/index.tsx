@@ -1,4 +1,4 @@
-import type { CardProps } from "../../interfaces/componentes/Card";
+import type { CardProps } from "../../interfaces/components/Card";
 
 export default function Card({ title, description, icon, width }: CardProps) {
   return (

@@ -1,5 +1,5 @@
 import { LayoutDashboard, Mail, Users } from "lucide-react";
-import type { MenuHamburguerProps } from "../../interfaces/componentes/MenuHamburguer";
+import type { MenuHamburguerProps } from "../../interfaces/components/MenuHamburguer";
 
 export const navData: MenuHamburguerProps["options"][] = [
   {

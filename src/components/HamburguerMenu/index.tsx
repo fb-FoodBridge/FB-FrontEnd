@@ -5,8 +5,8 @@ import {
 } from "lucide-react";
 import { Button } from "../ui/button";
 import { linkUnderlineAnimation } from "../../constants";
-import type { MenuHamburguerCloseProps } from "../../interfaces/componentes/MenuHamburguer";
 import { navData } from "./data";
+import type { MenuHamburguerCloseProps } from "../../interfaces/components/MenuHamburguer";
 
 export default function MenuHamburguer({ onClose }: MenuHamburguerCloseProps) {
   return (

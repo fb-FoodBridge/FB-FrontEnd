@@ -1,4 +1,4 @@
-import type { OptionCategoryProps } from "../../interfaces/componentes/OptionCategory";
+import type { OptionCategoryProps } from "../../interfaces/components/OptionCategory";
 
 export default function OptionCategory({ ...props }: OptionCategoryProps) {
   return (

@@ -1,6 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
-import type { OptionFaqProps } from "../../interfaces/componentes/OptionFaq";
+import type { OptionFaqProps } from "../../interfaces/components/OptionFaq";
 
 export default function OptionFaq({ ...props }: OptionFaqProps) {
 

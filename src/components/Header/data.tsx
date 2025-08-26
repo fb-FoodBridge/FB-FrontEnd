@@ -1,4 +1,4 @@
-import type { HeaderProps } from "../../interfaces/componentes/Header";
+import type { HeaderProps } from "../../interfaces/components/Header";
 
 export const navData: HeaderProps[] = [
     {

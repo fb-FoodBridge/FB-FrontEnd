@@ -1,5 +1,3 @@
-import OptionCategory from "../../components/OptionCategory";
-import OptionFaq from "../../components/OptionFaq";
 import AboutSection from "../../template/LandingPage/AboutSection";
 import FaqSection from "../../template/LandingPage/FaqSection";
 import HeroSection from "../../template/LandingPage/HeroSection";
