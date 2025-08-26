@@ -15,6 +15,11 @@ export default function Form({ ...props }: FormProps) {
             isMessageField={field.isMessageField}
             onChange={field.onChange}
           />
+          {
+            props.errorZod && (
+              <p className="text-red-500 text-sm">{props.errorZod[field.name]}</p>
+            )
+          }
         </div>
       ))}
 

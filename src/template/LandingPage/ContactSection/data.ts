@@ -2,11 +2,12 @@ import type { FormProps } from "../../../interfaces/componentes/Input";
 import { useContact } from "../../../hooks/useContact";
 
 export function useContactSectionData(): FormProps {
-  const { contactInfo, setContactInfo, handleEmail } = useContact();
+  const { contactInfo, setContactInfo, handleEmail, errors } = useContact();
 
   return {
     fields: [
       {
+        name: "name",
         label: "Nome",
         placeholder: "Digite seu nome",
         type: "text",
@@ -14,6 +15,7 @@ export function useContactSectionData(): FormProps {
         onChange: (e) => setContactInfo({ ...contactInfo, name: e.target.value }),
       },
       {
+        name: "email",
         label: "Email",
         placeholder: "Digite seu email",
         type: "email",
@@ -21,6 +23,7 @@ export function useContactSectionData(): FormProps {
         onChange: (e) => setContactInfo({ ...contactInfo, email: e.target.value }),
       },
       {
+        name: "message",
         label: "Mensagem",
         placeholder: "Digite sua mensagem",
         type: "text",
@@ -31,5 +34,6 @@ export function useContactSectionData(): FormProps {
     ],
     buttonText: "Enviar",
     onSubmit: handleEmail,
+    errorZod: errors
   };
 }

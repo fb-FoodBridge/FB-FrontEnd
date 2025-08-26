@@ -2,6 +2,7 @@ import type { FormEvent } from "react";
 
 export interface FormProps {
   fields: {
+    name: string
     label: string;
     placeholder: string;
     type: string;
@@ -11,4 +12,7 @@ export interface FormProps {
   }[];
   buttonText: string;
   onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
+  errorZod?: {
+    [key: string]: string;
+  }
 }

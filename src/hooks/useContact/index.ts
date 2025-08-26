@@ -3,6 +3,7 @@ import type { ContactInfo } from "../../types/hooks/useContact";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 import { emailJSKey, serviceID, templateEmail } from "../../constants";
+import { contactForm } from "../../lib/zod/contactForm";
 
 export const useContact = () => {
   const [contactInfo, setContactInfo] = useState<ContactInfo>({
@@ -10,9 +11,28 @@ export const useContact = () => {
     email: "",
     message: "",
   });
+  
+  const [errors, setErrors] = useState<{[ key: string ]: string}>({});
+
+
 
   function handleEmail(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const result = contactForm.safeParse(contactInfo);
+
+    if (!result.success) {
+      const fieldErrors: {[ key: string ]: string} = {}
+      
+      result.error.issues.forEach((issue) => {
+        if (typeof issue.path[0] === "string") fieldErrors[issue.path[0]] = issue.message
+      })
+      setErrors(fieldErrors)
+
+      return
+    } else {
+      setErrors({})
+    }
 
     if (
       contactInfo.name === "" ||
@@ -44,5 +64,6 @@ export const useContact = () => {
     contactInfo,
     handleEmail,
     setContactInfo,
+    errors
   }
 };
