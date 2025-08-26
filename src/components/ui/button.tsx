@@ -11,12 +11,18 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-[#212121] inter font-medium text-[20px] hover:underline hover:bg-[#3D3D3D] text-[#fafafa] ",
+        secondary: 
+        "bg-[#FFB74D] inter font-medium text-[20px] hover:underline hover:bg-[#FFB74DCC] text-[#fafafa] w-fit",
+        gray: 
+        "bg-[#3D3D3D] inter font-medium text-[20px] hover:underline hover:bg-[#202020] text-[#fafafa] w-fit"
       },
       size: {
         default: "h-9 px-12 py-2 has-[>svg]:px-3",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-9",
+        fit: "h-fit px-4 py-4", 
+        full: "w-full py-4 px-4",
       },
     },
     defaultVariants: {
