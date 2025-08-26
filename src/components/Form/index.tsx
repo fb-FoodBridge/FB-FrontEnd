@@ -1,4 +1,4 @@
-import type { FormProps } from "../../interfaces/componentes/Input";
+import type { FormProps } from "../../interfaces/components/Input";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
