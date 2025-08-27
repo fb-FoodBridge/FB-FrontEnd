@@ -2,7 +2,7 @@ import { ChevronDown, Globe, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-start justify-between p-12 bg-[#212121] text-white gap-8">
+    <footer className="flex flex-col items-start justify-between py-12 px-4 bg-[#212121] text-white gap-8">
       <div className="flex flex-col xl:flex-row justify-between w-full">
         <h4 className="font-bold text-white text-4xl mb-8 xl:mb-0">
           FOOD<span className="text-[#FDD835]">BRIDGE</span>

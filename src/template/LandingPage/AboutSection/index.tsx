@@ -3,7 +3,7 @@ import { aboutSectionData } from "./data";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="max-w-[1440px] flex flex-col gap-10 xl:px-12 xl:py-8 py-16 px-4 md:px-6">
+    <section id="about" className="max-w-[1440px] w-full flex flex-col gap-10 xl:px-12 xl:py-8 py-16 px-4 md:px-6">
       <h2 className="text-5xl text-center font-medium">
         Sobre a{" "}
         <span className="font-semibold text-5xl">
