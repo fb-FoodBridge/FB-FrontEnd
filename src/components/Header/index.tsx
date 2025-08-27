@@ -8,7 +8,7 @@ export default function Header() {
   const { handleMenu, isOpen } = useHamburguerMenu();
 
   return (
-    <header className="flex items-center justify-between px-10 py-9 bg-[#212121] ">
+    <header className="flex items-center justify-between px-4 lg:px-10 py-9 bg-[#212121] ">
       <h1 className="font-nourd-bold text-white font-bold text-2xl">
         FOOD<span className="text-[#FDD835]">BRIDGE</span>
       </h1>
