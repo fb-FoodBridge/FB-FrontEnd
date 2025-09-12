@@ -14,7 +14,6 @@ export default function LandingPage() {
       <WhyChooseUsSection />
       <FaqSection />
       <ContactSection />
-      <Carrousel />
       <CtaSection />
     </main>
   );

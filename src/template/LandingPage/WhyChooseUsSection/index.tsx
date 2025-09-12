@@ -11,7 +11,7 @@ export default function WhyChooseUsSection() {
         alt="Ilustração da seção 'Porque nos escolher?' que mostra ajudando um ao outro com alimento, que é o nosso objetivo"
       />
       <div className="flex flex-col gap-10 lg:gap-16">
-        <h2 className="font-bold text-5xl">Porque nos escolher?</h2>
+        <h2 className="font-bold text-5xl">Por que nos escolher?</h2>
         <p>
           A FoodBridge conecta quem tem alimentos excedentes a quem precisa,
           tornando a doação rápida, segura e eficiente. Com geolocalização,
