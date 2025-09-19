@@ -26,7 +26,7 @@ export default function Header() {
       </nav>
       <div className="hidden lg:flex items-center gap-8">
         <Link
-          to="/login"
+          to="/sign-in"
           className="text-white inter font-medium text-[20px] hover:underline"
         >
           Login

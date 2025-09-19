@@ -3,6 +3,7 @@ import ComingSoon from "../pages/ComingSoon";
 import Layout from "../layouts";
 import LandingPage from "../pages/LandingPage";
 import SignUp from "../template/Authentication/SignUp";
+import SignIn from "../template/Authentication/SignIn";
 
 export default function AppRouter() {
   return (
@@ -12,6 +13,7 @@ export default function AppRouter() {
           <Route index element={<LandingPage />} />
         </Route>
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-in" element={<SignIn />} />
 
         <Route path="/coming-soon" element={<ComingSoon />} />
       </Routes>

@@ -1,6 +1,4 @@
 import {
-  Building2,
-  ChefHat,
   X,
 } from "lucide-react";
 import { Button } from "../ui/button";
@@ -28,11 +26,11 @@ export default function MenuHamburguer({ onClose }: MenuHamburguerCloseProps) {
             Novo por aqui? <span className="text-[#FDD835]">Começe agora</span>!
           </h5>
           <div className="flex flex-col items-center gap-4 w-full">
-            <Button variant={"gray"} size={"full"}>
-              Restaurantes <ChefHat size={16} fill="#fff" color="#000" />
+            <Button variant={"default"} size={"full"}>
+              Login
             </Button>
-            <Button variant={"gray"} size={"full"}>
-              Organizações <Building2 size={16} fill="#fff" color="#000" />
+            <Button variant={"secondary"} size={"full"}>
+              Cadastro
             </Button>
           </div>
         </div>

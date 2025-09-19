@@ -1,6 +1,7 @@
-import { Building2, ChefHat } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { illustrationWhyChooseUs } from "../../../assets/images";
+import { Link } from "react-router-dom";
 
 export default function WhyChooseUsSection() {
   return (
@@ -26,14 +27,9 @@ export default function WhyChooseUsSection() {
             size={"fit"}
             className="w-full lg:w-fit lg:h-fit"
           >
-            Restaurantes <ChefHat size={16} fill="#fff" color="#000" />
-          </Button>
-          <Button
-            variant={"secondary"}
-            size={"fit"}
-            className="w-full lg:w-fit lg:h-fit"
-          >
-            Organizações <Building2 size={16} fill="#fff" color="#000" />
+            <Link to="/sign-up" className="flex items-center gap-2">
+              Começe agora! <ArrowRight size={24} color="#fff" />
+            </Link>
           </Button>
         </div>
       </div>
