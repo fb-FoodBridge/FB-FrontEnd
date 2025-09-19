@@ -1,4 +1,3 @@
-import Carrousel from "../../components/Carrousel";
 import AboutSection from "../../template/LandingPage/AboutSection";
 import ContactSection from "../../template/LandingPage/ContactSection";
 import CtaSection from "../../template/LandingPage/CtaSection";

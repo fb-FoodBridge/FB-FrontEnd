@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { linkUnderlineAnimation } from "../../constants";
 import { useHamburguerMenu } from "../../hooks/useHamburguerMenu";
 import MenuHamburguer from "../HamburguerMenu";
@@ -24,14 +25,16 @@ export default function Header() {
         ))}
       </nav>
       <div className="hidden lg:flex items-center gap-8">
-        <a
-          href="teste"
+        <Link
+          to="/login"
           className="text-white inter font-medium text-[20px] hover:underline"
         >
           Login
-        </a>
+        </Link>
         <Button variant={"secondary"} size={"fit"}>
-          Cadastro
+          <Link to="/sign-up" className="text-white">
+            Cadastro
+          </Link>
         </Button>
       </div>
 
