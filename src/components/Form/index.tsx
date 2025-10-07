@@ -12,7 +12,7 @@ export default function Form({ ...props }: FormProps) {
             type={field.type}
             placeholder={field.placeholder}
             value={field.value}
-            isMessageField={field.isMessageField}
+            isMessageField={field.isMessageField ? true : false}
             onChange={field.onChange}
           />
           {

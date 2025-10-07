@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { illustrationCooking } from "../../../assets/images";
 import type { AuthenticationDesignProps } from "../../../interfaces/template/Authentication";
+
+export const [email,setEmail] = useState("");
 
 export const SignInData: AuthenticationDesignProps = {
   formData: {
@@ -9,6 +12,8 @@ export const SignInData: AuthenticationDesignProps = {
         name: "Email",
         placeholder: "Digite o seu email",
         type: "email",
+        onChange: (e) => setEmail(e.target.value),
+        value: email,
       },
       {
         label: "Senha",

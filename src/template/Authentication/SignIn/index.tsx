@@ -10,7 +10,7 @@ export default function SignIn() {
         <Link to={"/"} className="font-semibold text-5xl">
           FOOD<span className="text-[#FDD835]">BRIDGE</span>
         </Link>
-        <Form {...SignInData.formData} />
+        <Form {...SignInData.formData }  />
         <div className="w-full flex items-center gap-3">
           <div className="w-[70%] h-[1px] bg-black" />
           <p className="font-semibold text-[20px]">ou</p>

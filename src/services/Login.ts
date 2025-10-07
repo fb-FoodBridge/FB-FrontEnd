@@ -1,4 +1,3 @@
-import { email, success } from "zod"
 import { ZodValidate } from "../utils/zodValidationUtil"
 import { ZodLoginSchema } from "../validations/ZodValidationSchema"
 import type { ZodLoginTypes } from "../validations/ZodValidationsTypes"
@@ -8,11 +7,11 @@ export async function Login(data:ZodLoginTypes){
     try{
         const result = ZodValidate(ZodLoginSchema, data)
         if(result.success !== true) return console.error(result.error.flatten())
-        const response = await api.post('/merchant/login',{
-           email: data.email,
-           password: data.password  
-        })
-        return {success:true, response: response.data}
+        const response = await fetch(`${api}/login`, {
+    method: 'POST',
+    body: JSON.stringify(data)
+})
+        return {success:true, response: response}
     }catch(error){
         console.log(error)
     }
