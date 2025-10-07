@@ -1,11 +1,10 @@
-import { z } from "zod";
+import { email, z } from "zod";
 
 export const contactForm = z.object({
   name: z.string().min(1, { message: "O nome é obrigatório" }),
   email: z
-    .string()
-    .min(1, { message: "O email é obrigatório" })
-    .email({ message: "Insira um email válido" }),
+    .email({ message: "Insira um email válido" })
+    .min(1, { message: "O email é obrigatório" }),
   message: z
     .string()
     .min(1, { message: "A mensagem é obrigatória" })
@@ -13,3 +12,4 @@ export const contactForm = z.object({
 });
 
 export type ContactFormType = z.infer<typeof contactForm>
+
