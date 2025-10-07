@@ -1,9 +1,8 @@
 import { useState, type FormEvent } from "react";
-import type { authInfo } from "../../types/hooks/useAuth";
-import { authSchema } from "../../lib/zod/contactForm";
-
+import { authSchema } from "../../lib/zod/useAuth";
+import type { AuthType} from "../../lib/zod/useAuth";
 export const useAuth = () => {
-    const [auth,setAuth] = useState<authInfo>({
+    const [auth,setAuth] = useState<AuthType>({
         email: "",
         password: ""
     });
