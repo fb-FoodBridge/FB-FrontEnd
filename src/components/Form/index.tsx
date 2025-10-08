@@ -1,8 +1,11 @@
+import { useState } from "react";
 import type { FormProps } from "../../interfaces/components/Input";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
 export default function Form({ ...props }: FormProps) {
+  const [email,setEmail] = useState("")
+  console.log(email)
   return (
     <form onSubmit={props.onSubmit} className="w-full flex flex-col gap-4 h-fit">
       {props.fields.map((field, index) => (
@@ -13,7 +16,7 @@ export default function Form({ ...props }: FormProps) {
             placeholder={field.placeholder}
             value={field.value}
             isMessageField={field.isMessageField}
-            onChange={field.onChange}
+            onChange={field.type === "email"? (text) => setEmail(text) : field.onChange}
           />
           {
             props.errorZod && (
