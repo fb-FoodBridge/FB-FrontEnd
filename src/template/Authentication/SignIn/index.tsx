@@ -6,22 +6,23 @@ import { useAuth } from "../../../hooks/useAuth";
 import { Login } from "../../../services/Login";
 
 export default function SignIn() {
-  const { auth, errors, handleChange, handleSubmit } = useAuth();
+  const { auth, handleChange} = useAuth();
   const data = SignInData(auth, handleChange);
 
   const handleSubmit2Fuctions = async () => {
     try {
-      
+
       const response = await Login(auth);
       if (!response) {
-        console.error("Resposta vazia");
+        console.error("Resposta vazia",response);
         return;
       }
-      if (!response.success === true) {
+      if (response.success !== true) {
         console.error("Login falhou: ", response);
+        return
       }
-      const res = response.response
-      console.log(res)
+      const res = await response.response
+      console.log("Login: ",res)
     } catch (error) {
       console.error(error);
     }
