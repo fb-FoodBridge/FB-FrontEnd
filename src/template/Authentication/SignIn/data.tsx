@@ -7,6 +7,7 @@ export function SignInData():AuthenticationDesignProps {
 const {handleChange,auth} = useAuth()
   return{
   formData: {
+    
     fields: [
       {
         label: "Email",
@@ -15,6 +16,7 @@ const {handleChange,auth} = useAuth()
         type: "email",
         onChange: handleChange,
         value: auth.email,
+        
       },
       {
         label: "Senha",
