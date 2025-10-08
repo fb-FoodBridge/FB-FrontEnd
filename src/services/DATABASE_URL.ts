@@ -1,2 +1,1 @@
-
-export const api:string | undefined = process.env.DATABASE_URL;
+export const api: string | undefined = import.meta.env.VITE_API_URL;

@@ -12,6 +12,7 @@ export default function Form({ ...props }: FormProps) {
           <Input
             type={field.type}
             placeholder={field.placeholder}
+            name={field.name}
             value={field.value}
             isMessageField={field.isMessageField ? true : false}
             onChange={field.onChange}

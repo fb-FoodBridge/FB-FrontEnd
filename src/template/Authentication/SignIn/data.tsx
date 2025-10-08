@@ -1,17 +1,19 @@
 
 import { illustrationCooking } from "../../../assets/images";
 import type { AuthenticationDesignProps } from "../../../interfaces/template/Authentication";
-import { useAuth } from "../../../hooks/useAuth";
 
-export function SignInData():AuthenticationDesignProps {
-const {handleChange,auth} = useAuth()
+export function SignInData(auth:{
+  email: string,
+  password: string
+}, handleChange: (e :React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void ):AuthenticationDesignProps {
+
   return{
   formData: {
     
     fields: [
       {
         label: "Email",
-        name: "Email",
+        name: "email",
         placeholder: "Digite o seu email",
         type: "email",
         onChange: handleChange,
@@ -20,9 +22,11 @@ const {handleChange,auth} = useAuth()
       },
       {
         label: "Senha",
-        name: "Password",
+        name: "password",
         placeholder: "Digite a sua senha",
         type: "password",
+        onChange: handleChange,
+        value: auth.password,
       },
     ],
     buttonText: "Entrar",
