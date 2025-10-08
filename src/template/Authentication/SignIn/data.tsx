@@ -1,7 +1,11 @@
+
 import { illustrationCooking } from "../../../assets/images";
 import type { AuthenticationDesignProps } from "../../../interfaces/template/Authentication";
+import { useAuth } from "../../../hooks/useAuth";
 
-export const SignInData: AuthenticationDesignProps = {
+export function SignInData():AuthenticationDesignProps {
+const {handleChange,auth} = useAuth()
+  return{
   formData: {
     fields: [
       {
@@ -9,6 +13,8 @@ export const SignInData: AuthenticationDesignProps = {
         name: "Email",
         placeholder: "Digite o seu email",
         type: "email",
+        onChange: handleChange,
+        value: auth.email,
       },
       {
         label: "Senha",
@@ -26,3 +32,4 @@ export const SignInData: AuthenticationDesignProps = {
       "“Agora quando estou com alimentos excedentes, busco fazer o bem por meio da FoodBridge.”",
   },
 };
+}
