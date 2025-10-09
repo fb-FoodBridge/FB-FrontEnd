@@ -4,13 +4,16 @@ import type { ZodLoginTypes } from "../validations/ZodValidationsTypes";
 import { api } from "./DATABASE_URL";
 
 export async function Login(data: ZodLoginTypes) {
-  try {
+  
     const result = ZodValidate(ZodLoginSchema, data);
     if (result.success !== true) {
-      const fieldErrors = result.error.flatten().fieldErrors;
-      return { success: false, error: {message: "Verifique os campos do formulário",
-      fields: fieldErrors,}};
-    }
+      return {
+      success: false,
+      message: result.message,
+      fields: result.fields,
+    };
+  }
+    try {
 
     if (!api) {
       return { success: false, error: new Error("Url indefinida") };

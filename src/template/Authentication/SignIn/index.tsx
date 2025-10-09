@@ -4,30 +4,31 @@ import Form from "../../../components/Form";
 import { SignInData } from "./data";
 import { useAuth } from "../../../hooks/useAuth";
 import { Login } from "../../../services/Login";
+import { toast } from "react-toastify";
 
 export default function SignIn() {
-  const { auth, handleChange} = useAuth();
+  const { auth, handleChange } = useAuth();
   const data = SignInData(auth, handleChange);
 
-  const handleSubmit2Fuctions = async () => {
+  const handleSubmit2Fuctions = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
-
       const response = await Login(auth);
       if (!response) {
-        console.error("Resposta vazia",response);
-        return;
+        toast.error("Resposta vazia");
+         return
       }
-      if (response.success !== true) {
-        console.error("Login falhou: ", response.error);
-        return
+      if (!response.success) {
+        const firstError = Object.values(response.fields || {})[0];
+         toast.error(`${firstError}`);
+         return
       }
-      const res = await response.response
-      console.log("Login: ",res)
+      const res = response;
+      console.log("Login: ", res);
     } catch (error) {
       console.error(error);
     }
   };
-  console.log(data.formData.fields.map((teste) => teste.value));
   return (
     <main className="w-full h-screen xl:h-screen px-6 py-6 flex lg:flex-row justify-center items-center gap-20">
       <div className="w-full h-fit flex flex-col gap-12 items-center">
