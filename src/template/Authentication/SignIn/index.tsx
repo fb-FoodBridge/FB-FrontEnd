@@ -18,7 +18,7 @@ export default function SignIn() {
         return;
       }
       if (response.success !== true) {
-        console.error("Login falhou: ", response);
+        console.error("Login falhou: ", response.error);
         return
       }
       const res = await response.response
