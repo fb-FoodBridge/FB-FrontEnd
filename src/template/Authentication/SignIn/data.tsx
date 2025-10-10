@@ -1,15 +1,28 @@
 
+import { useState } from "react";
 import { illustrationCooking } from "../../../assets/images";
+import { useAuth } from "../../../hooks/useAuth";
 import type { AuthenticationDesignProps } from "../../../interfaces/template/Authentication";
+import { handleCallApi } from "../../../services/merchant/handleCallApi";
 
-export function SignInData(auth:{
-  email: string,
-  password: string
-}, handleChange: (e :React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void ):AuthenticationDesignProps {
+export function SignInData():AuthenticationDesignProps {
+  const { auth, handleChange, setLoading, loading  } = useAuth()
+  const [error,setError] = useState<{ [key: string]: string } | undefined>(undefined)
+  async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setLoading(true)
+        const result = await handleCallApi(auth)
+        setLoading(false)
+        if(!result.success){
+          setError(result.fields)
+        }
+  }
 
+  console.log("error: ",error)
   return{
   formData: {
-    
+    errorZod: error ,
+    onSubmit: handleLogin,
     fields: [
       {
         label: "Email",
