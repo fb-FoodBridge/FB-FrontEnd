@@ -17,8 +17,6 @@ export function SignInData():AuthenticationDesignProps {
           setError(result.fields)
         }
   }
-
-  console.log("error: ",error)
   return{
   formData: {
     errorZod: error ,
@@ -42,7 +40,7 @@ export function SignInData():AuthenticationDesignProps {
         value: auth.password,
       },
     ],
-    buttonText: "Entrar",
+    buttonText: loading? "Carregando..." : "Entrar",
   },
   bannerData: {
     author: "Michael, Dono do Fogo no Teto",

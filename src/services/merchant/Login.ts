@@ -2,6 +2,7 @@ import { ZodValidate } from "../../utils/zodValidationUtil";
 import { ZodLoginSchema } from "../../validations/ZodValidationSchema";
 import type { ZodLoginTypes } from "../../validations/ZodValidationsTypes";
 import { api } from "../../constants/BASE_URL";
+import { toast } from "react-toastify";
 
 export async function Login(data: ZodLoginTypes) {
   const result = ZodValidate(ZodLoginSchema, data);
@@ -23,15 +24,17 @@ export async function Login(data: ZodLoginTypes) {
         password: data.password,
       }),
     })
-      .then((data) => {
-        return { success: true, response: `teste :${data.json()}` };
-      })
-      .catch((data) => {
-        if (!data.ok) {
-          const text =  data.text;
-          throw new Error(`teste: ${text}`);
+      .then(async (response) => {
+        const data = await response.json()
+        if(response.status === 401){
+          
+          return toast.error("Email ou senha inválida") && Promise.reject(data)
         }
-      });
+        return { success: true, response: `teste :${data}` };
+      })
+      .catch((erro) => {
+          throw new Error(`teste: ${erro}`);
+        });
   } catch (error) {
     return { success: false, error };
   }
