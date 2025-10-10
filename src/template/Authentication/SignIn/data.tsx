@@ -1,15 +1,21 @@
 
 import { illustrationCooking } from "../../../assets/images";
+import { useAuth } from "../../../hooks/useAuth";
 import type { AuthenticationDesignProps } from "../../../interfaces/template/Authentication";
+import { handleCallApi } from "../../../services/merchant/handleCallApi";
 
-export function SignInData(auth:{
-  email: string,
-  password: string
-}, handleChange: (e :React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void ):AuthenticationDesignProps {
-
+export function SignInData():AuthenticationDesignProps {
+  const { auth,errors, handleChange, handleSubmit } = useAuth()
+  const callingApi = handleCallApi(auth)
+  callingApi.then((data) => {
+    if(data?.success.valueOf() === false){
+     return console.log(data.response?.toString())
+    }
+  })
   return{
   formData: {
-    
+    errorZod: errors,
+    onSubmit: handleSubmit,
     fields: [
       {
         label: "Email",

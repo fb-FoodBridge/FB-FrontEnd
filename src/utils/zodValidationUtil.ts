@@ -18,7 +18,6 @@ export function ZodValidate<T>(schema: ZodSchema<T>, data: unknown) {
 
   return {
     success: false,
-    message: "Verifique os campos do formulário",
     fields,
   };
 }
