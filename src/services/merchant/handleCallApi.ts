@@ -4,6 +4,7 @@ interface ApiResponse<T = unknown> {
   success: boolean;
   message?: string;
    fields?: { [key: string]: string };
+   error?:unknown
   data?: T;
 }
 
@@ -22,18 +23,15 @@ export async function handleCallApi(auth: {
      const fieldErrors = response.fields || {};
       return { success: false, fields: fieldErrors }
     }
-    
     return {
       success: true,
       message: "Login realizado com sucesso.",
-      data: response,
+      data: response.data
     };
 
   } catch (error) {
-    console.error("Erro ao chamar API:", error);
     return {
-      success: false,
-      message: "Erro de conexão com o servidor.",
+      success: false, error
     };
   }
 }

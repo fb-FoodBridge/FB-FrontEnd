@@ -4,6 +4,11 @@ import type { ZodLoginTypes } from "../../validations/ZodValidationsTypes";
 import { api } from "../../constants/BASE_URL";
 import { toast } from "react-toastify";
 
+interface data {
+  access_token: string;
+  refresh_token: string;
+}
+
 export async function Login(data: ZodLoginTypes) {
   const result = ZodValidate(ZodLoginSchema, data);
   if (result.success !== true) {
@@ -16,7 +21,7 @@ export async function Login(data: ZodLoginTypes) {
     if (!api) {
       return { success: false, error: new Error("Url indefinida") };
     }
-   await fetch(`${api}/merchant/login`, {
+    const response = await fetch(`${api}/merchant/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -24,17 +29,22 @@ export async function Login(data: ZodLoginTypes) {
         password: data.password,
       }),
     })
-      .then(async (response) => {
-        const data = await response.json()
-        if(response.status === 401){
-          
-          return toast.error("Email ou senha inválida") && Promise.reject(data)
+      .then(async (data) => {
+        const json: data = await data.json();
+        if (data.status === 401) {
+          return toast.error("Email ou senha inválida") && Promise.reject(json);
         }
-        return { success: true, response: `teste :${data}` };
+        
+        const token = json.access_token
+        localStorage.setItem("token", token)
+
+        return { success: true, token};
       })
-      .catch((erro) => {
-          throw new Error(`teste: ${erro}`);
-        });
+      .catch((error) => {
+        return { success: false, error };
+      });
+
+    return { success: true, data: response };
   } catch (error) {
     return { success: false, error };
   }
