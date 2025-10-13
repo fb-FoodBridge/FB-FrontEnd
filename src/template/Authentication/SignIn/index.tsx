@@ -4,6 +4,7 @@ import Form from "../../../components/Form";
 import { SignInData } from "./data";
 
 export default function SignIn() {
+  
   return (
     <main className="w-full h-screen xl:h-screen px-6 py-6 flex lg:flex-row justify-center items-center gap-20">
       <div className="w-full h-fit flex flex-col gap-12 items-center">
@@ -21,6 +22,7 @@ export default function SignIn() {
         <p className="text-[20px] text-center">
           Já tem uma conta?{" "}
           <Link to={"/sign-up"} className="font-medium text-[20px] underline cursor-pointer">Se cadastre</Link>
+          
         </p>
       </div>
       <Banner
