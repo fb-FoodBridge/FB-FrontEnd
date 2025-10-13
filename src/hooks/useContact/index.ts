@@ -1,12 +1,11 @@
 import { useState, type FormEvent } from "react";
-import type { ContactInfo } from "../../types/hooks/useContact";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 import { emailJSKey, serviceID, templateEmail } from "../../constants";
-import { contactForm } from "../../lib/zod/contactForm";
-
+import { contactFormSchema } from "../../lib/zod/contactForm";
+import type { ContactFormType } from "../../lib/zod/contactForm";
 export const useContact = () => {
-  const [contactInfo, setContactInfo] = useState<ContactInfo>({
+  const [contactInfo, setContactInfo] = useState<ContactFormType>({
     name: "",
     email: "",
     message: "",
@@ -19,7 +18,7 @@ export const useContact = () => {
   function handleEmail(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const result = contactForm.safeParse(contactInfo);
+    const result = contactFormSchema.safeParse(contactInfo);
 
     if (!result.success) {
       const fieldErrors: {[ key: string ]: string} = {}

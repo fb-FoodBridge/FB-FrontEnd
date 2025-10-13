@@ -1,3 +1,4 @@
+
 import type { FormProps } from "../../interfaces/components/Input";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -11,8 +12,9 @@ export default function Form({ ...props }: FormProps) {
           <Input
             type={field.type}
             placeholder={field.placeholder}
+            name={field.name}
             value={field.value}
-            isMessageField={field.isMessageField}
+            isMessageField={field.isMessageField ? true : false}
             onChange={field.onChange}
           />
           {
