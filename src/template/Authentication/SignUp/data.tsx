@@ -1,8 +1,13 @@
 import { illustrationCooking } from "../../../assets/images";
 import type { AuthenticationDesignProps } from "../../../interfaces/template/Authentication";
+import { useState } from "react";
 
-export const SignUpData: AuthenticationDesignProps = {
-  formData: {
+export function SignUpData(): AuthenticationDesignProps  {
+    const [error, setError] = useState<{ [key: string]: string } | undefined>(
+    undefined
+  );
+  return {
+    formData: {
     fields: [
       {
         label: "Nome",
@@ -38,3 +43,4 @@ export const SignUpData: AuthenticationDesignProps = {
       "“Agora quando estou com alimentos excedentes, busco fazer o bem por meio da FoodBridge.”",
   },
 };
+}

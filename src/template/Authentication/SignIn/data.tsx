@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { illustrationCooking } from "../../../assets/images";
 import { useAuth } from "../../../hooks/useAuth";
 import type { AuthenticationDesignProps } from "../../../interfaces/template/Authentication";
@@ -10,33 +10,35 @@ interface data<T = unknown> {
   success: boolean;
   message?: string;
   fields?: { [key: string]: string };
+  error?: unknown | string;
   data?: T;
 }
 
 export function SignInData(): AuthenticationDesignProps {
   const { auth, handleChange, setLoading, loading } = useAuth();
-  const [error, setError] = useState<{ [key: string]: string } | undefined>(
-    undefined
-  );
+
 
   const router = useNavigate()
 
   async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    const result:data = await handleCallApi(auth);
+    const result: data = await handleCallApi(auth);
     setLoading(false);
-    if (!result.success) {
-      setError(result.fields)
-      toast.error(result.message)
-    }else {
+    if (!result.success && (result.fields || result.error)) {
+    
+      if (typeof result.error === "string") {
+        toast.error(result.error);
+      } else if (result.error) {
+        toast.error("An unknown error occurred.");
+      }
+      return;
+    }    
   toast.success(result.message);
-  router('/');
-}
+  router('/')
   }
   return {
     formData: {
-      errorZod: error,
       onSubmit: handleLogin,
       fields: [
         {
