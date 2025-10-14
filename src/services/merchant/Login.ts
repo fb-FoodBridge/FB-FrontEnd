@@ -9,7 +9,7 @@ interface data {
   refresh_token: string;
 }
 
-export async function Login(data: ZodLoginTypes) {
+export async function  Login(data: ZodLoginTypes) {
   const result = ZodValidate(ZodLoginSchema, data);
   if (result.success !== true) {
     return {
@@ -32,7 +32,8 @@ export async function Login(data: ZodLoginTypes) {
       .then(async (data) => {
         const json: data = await data.json();
         if (data.status === 401) {
-          return toast.error("Email ou senha inválida") && Promise.reject(json);
+          const erro = toast.error("Email ou senha inválida")
+          return Promise.reject({ success: true,err }) 
         }
         
         const token = json.access_token

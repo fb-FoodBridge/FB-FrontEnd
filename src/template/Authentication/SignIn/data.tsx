@@ -27,11 +27,12 @@ export function SignInData(): AuthenticationDesignProps {
     const result:data = await handleCallApi(auth);
     setLoading(false);
     if (!result.success) {
-      setError(result.fields);
-    }
-
-    toast.success(result.message)
-    return router('/')
+      setError(result.fields)
+      toast.error(result.message)
+    }else {
+  toast.success(result.message);
+  router('/');
+}
   }
   return {
     formData: {

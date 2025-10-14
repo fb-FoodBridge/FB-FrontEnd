@@ -3,8 +3,8 @@ import { Login } from "./Login";
 interface ApiResponse<T = unknown> {
   success: boolean;
   message?: string;
-   fields?: { [key: string]: string };
-   error?:unknown
+  fields?: { [key: string]: string };
+  error?: unknown;
   data?: T;
 }
 
@@ -20,18 +20,23 @@ export async function handleCallApi(auth: {
     }
 
     if (!response.success) {
-     const fieldErrors = response.fields || {};
-      return { success: false, fields: fieldErrors }
+      return {
+        success: false,
+        fields: response.fields || undefined,
+        error: response.error,
+        message: response.message,
+      };
+    } else {
+      return {
+        success: true,
+        message: "Login realizado com sucesso.",
+        data: response.data,
+      };
     }
-    return {
-      success: true,
-      message: "Login realizado com sucesso.",
-      data: response.data
-    };
-
   } catch (error) {
     return {
-      success: false, error
+      success: false,
+      error,
     };
   }
 }
