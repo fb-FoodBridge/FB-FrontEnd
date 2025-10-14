@@ -1,5 +1,3 @@
-import { ZodValidate } from "../../utils/zodValidationUtil";
-import { ZodLoginSchema } from "../../validations/ZodValidationSchema";
 import type { ZodLoginTypes } from "../../validations/ZodValidationsTypes";
 import { api } from "../../constants/BASE_URL";
 
@@ -9,14 +7,8 @@ interface data {
   refresh_token: string;
 }
 
-export async function  Login(data: ZodLoginTypes) {
-  const result = ZodValidate(ZodLoginSchema, data);
-  if (result.success !== true) {
-    return {
-      success: false,
-      fields: result.fields,
-    };
-  }
+export async function LoginMerchant(data: ZodLoginTypes) {
+
   try {
     const response = await fetch(`${api}/merchant/login`, {
       method: "POST",

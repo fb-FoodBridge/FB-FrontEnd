@@ -1,4 +1,4 @@
-import { Login } from "./Login";
+import { LoginMerchant } from "./Login";
 
 interface ApiResponse<T = unknown> {
   success: boolean;
@@ -13,7 +13,7 @@ export async function handleCallApi(auth: {
   password: string;
 }): Promise<ApiResponse> {
   try {
-    const response = await Login(auth);
+    const response = await LoginMerchant(auth);
 
     if (!response) {
       return { success: false, message: "Sem resposta do servidor." };
@@ -23,7 +23,6 @@ export async function handleCallApi(auth: {
      return response;
     }
     return response;
-
   } catch (error) {
     return {
       success: false,
