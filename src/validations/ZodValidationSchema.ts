@@ -22,8 +22,8 @@ export const ZodRegisterSchema = z.object({
     ),
   cnpj: z.preprocess((input) => {
     if (typeof input === "string") {
-      return input.replace(/[/-]/g, "");
+       return input.replace(/[.\-/]/g, "");
     }
     return input;
-  }, z.string().min(14, "CNPJ deve ter 14 caracteres").max(14, "CNPJ deve ter 14 caracteres")),
+  }, z.string()),
 });

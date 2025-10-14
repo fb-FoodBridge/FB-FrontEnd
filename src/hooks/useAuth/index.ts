@@ -1,20 +1,34 @@
 import { useState } from "react";
-import type { AuthType } from "../../lib/zod/useAuth";
+import type { AuthType, RegisterType } from "../../lib/zod/useAuth";
 export const useAuth = () => {
   
-  const [auth, setAuth] = useState<AuthType>({ email: "", password: "" });
- 
+ const [loginAuth, setLoginAuth] = useState<AuthType>({ email: "", password: "" });
+
+const [registerAuth, setRegisterAuth] = useState<RegisterType>({
+  email: "",
+  password: "",
+  username: "",
+  cnpj: "",
+});
+
     const [loading, setLoading] = useState(false);
 
-  function handleChange(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleLoginChange(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target;
-    setAuth((prev) => ({ ...prev, [name]: value }));
+    setLoginAuth((prev) => ({ ...prev, [name]: value })) 
   }
 
+  function handleRegisterChange(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const { name, value } = e.target;
+     setRegisterAuth((prev) => ({ ...prev, [name]: value }))
+  }
+
+
   return {
-    auth,
-    setAuth,
-    handleChange,
+    loginAuth,
+    registerAuth,
+    handleLoginChange,
+    handleRegisterChange,
     loading,
     setLoading,
   };

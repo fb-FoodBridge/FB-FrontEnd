@@ -5,6 +5,7 @@ import type { AuthenticationDesignProps } from "../../../interfaces/template/Aut
 import { handleCallApi } from "../../../services/merchant/handleCallApi";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { LoginMerchant } from "../../../services/merchant/Login";
 
 interface data<T = unknown> {
   success: boolean;
@@ -15,7 +16,7 @@ interface data<T = unknown> {
 }
 
 export function SignInData(): AuthenticationDesignProps {
-  const { auth, handleChange, setLoading, loading } = useAuth();
+  const { loginAuth, handleLoginChange, setLoading, loading } = useAuth();
 
 
   const router = useNavigate()
@@ -23,7 +24,7 @@ export function SignInData(): AuthenticationDesignProps {
   async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    const result: data = await handleCallApi(auth);
+    const result: data = await handleCallApi(LoginMerchant,loginAuth);
     setLoading(false);
     if (!result.success && (result.fields || result.error)) {
     
@@ -46,16 +47,16 @@ export function SignInData(): AuthenticationDesignProps {
           name: "email",
           placeholder: "Digite o seu email",
           type: "email",
-          onChange: handleChange,
-          value: auth.email,
+          onChange: handleLoginChange,
+          value: loginAuth.email,
         },
         {
           label: "Senha",
           name: "password",
           placeholder: "Digite a sua senha",
           type: "password",
-          onChange: handleChange,
-          value: auth.password,
+          onChange: handleLoginChange,
+          value: loginAuth.password,
         },
       ],
       buttonText: loading ? "Carregando..." : "Entrar",

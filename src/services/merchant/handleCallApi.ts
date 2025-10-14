@@ -1,5 +1,3 @@
-import { LoginMerchant } from "./Login";
-
 interface ApiResponse<T = unknown> {
   success: boolean;
   message?: string;
@@ -8,13 +6,13 @@ interface ApiResponse<T = unknown> {
   data?: T;
 }
 
-export async function handleCallApi(auth: {
-  email: string;
-  password: string;
-}): Promise<ApiResponse> {
+export async function handleCallApi<TInput,TOutput>( 
+ apiFunction: (data: TInput) => Promise<ApiResponse<TOutput>>,
+ payload: TInput
+):  Promise<ApiResponse<TOutput>> {
   try {
-    const response = await LoginMerchant(auth);
-
+    const response = await apiFunction(payload);
+    console.log(payload)
     if (!response) {
       return { success: false, message: "Sem resposta do servidor." };
     }

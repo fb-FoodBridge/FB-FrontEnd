@@ -20,6 +20,9 @@ export async function LoginMerchant(data: ZodLoginTypes) {
     })
       .then(async (data) => {
         const json: data = await data.json();
+        if(data.status === 400){
+                  return Promise.reject({ success: false, error: "Email e senha inválido" });
+        }
         if (data.status === 401) {
         return Promise.reject({ success: false, error: "Email e senha inválido" });
         }

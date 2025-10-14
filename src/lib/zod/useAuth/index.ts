@@ -1,8 +1,16 @@
 import { z } from "zod";
 
 export const authSchema = z.object({
-  email: z.email({ message: "Insira um email válido" }),
-  password: z.string().min(6, { message: "A senha deve ter no mínimo 6 caracteres" }),
+  email: z.email(),
+  password: z.string()
+}) 
+
+export const registerSchema = z.object({
+  email: z.email(),
+  password: z.string(),
+  cnpj: z.string(),
+  username: z.string()
 }) 
 
 export type AuthType = z.infer<typeof authSchema>
+export type RegisterType = z.infer<typeof registerSchema> 
