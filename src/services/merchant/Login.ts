@@ -9,7 +9,7 @@ interface data {
 
 export async function LoginMerchant(data: ZodLoginTypes) {
 
-  try {
+
     const response = await fetch(`${api}/merchant/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -36,7 +36,4 @@ export async function LoginMerchant(data: ZodLoginTypes) {
       });
 
     return response
-  } catch (error) {
-    return { success: false, error };
-  }
 }

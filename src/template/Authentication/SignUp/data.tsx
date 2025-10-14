@@ -6,6 +6,8 @@ export function SignUpData(): AuthenticationDesignProps  {
     const [error, setError] = useState<{ [key: string]: string } | undefined>(
     undefined
   );
+  
+
   return {
     formData: {
     fields: [
