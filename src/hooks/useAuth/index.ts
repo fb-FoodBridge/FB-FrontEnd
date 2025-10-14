@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { authSchema } from "../../lib/zod/useAuth";
 import type { AuthType } from "../../lib/zod/useAuth";
 import { toast } from "react-toastify";
+
 export const useAuth = () => {
   const [auth, setAuth] = useState<AuthType>({
     email: "",
@@ -10,7 +11,7 @@ export const useAuth = () => {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  function handleChange(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target;
 
     setAuth((prev) => ({

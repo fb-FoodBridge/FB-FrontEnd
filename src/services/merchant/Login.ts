@@ -1,7 +1,7 @@
-import { ZodValidate } from "../utils/zodValidationUtil";
-import { ZodLoginSchema } from "../validations/ZodValidationSchema";
-import type { ZodLoginTypes } from "../validations/ZodValidationsTypes";
-import { api } from "./DATABASE_URL";
+import { ZodValidate } from "../../utils/zodValidationUtil";
+import { ZodLoginSchema } from "../../validations/ZodValidationSchema";
+import type { ZodLoginTypes } from "../../validations/ZodValidationsTypes";
+import { api } from "../../constants/BASE_URL";
 
 export async function Login(data: ZodLoginTypes) {
   
