@@ -1,51 +1,36 @@
-import { useState, type FormEvent } from "react";
-import { authSchema } from "../../lib/zod/useAuth";
-import type { AuthType } from "../../lib/zod/useAuth";
-import { toast } from "react-toastify";
-
+import { useState } from "react";
+import type { AuthType, RegisterType } from "../../lib/zod/useAuth";
 export const useAuth = () => {
-  const [auth, setAuth] = useState<AuthType>({
-    email: "",
-    password: "",
-  });
+  
+ const [loginAuth, setLoginAuth] = useState<AuthType>({ email: "", password: "" });
 
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+const [registerAuth, setRegisterAuth] = useState<RegisterType>({
+  email: "",
+  password: "",
+  username: "",
+  cnpj: "",
+});
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const [loading, setLoading] = useState(false);
+
+  function handleLoginChange(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target;
-
-    setAuth((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setLoginAuth((prev) => ({ ...prev, [name]: value })) 
   }
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const result = authSchema.safeParse(auth);
-    if (!result.success) {
-      const fieldErrors: { [key: string]: string } = {};
 
-      result.error.issues.forEach((issue) => {
-        if (typeof issue.path[0] === "string")
-          fieldErrors[issue.path[0]] = issue.message;
-      });
-      setErrors(fieldErrors);
-
-      return;
-    } else {
-      setErrors({});
-    }
-
-    if (!auth.email || !auth.password) {
-      toast.error("Por favor, preencha todos os campos.");
-      return;
-    }
+  function handleRegisterChange(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const { name, value } = e.target;
+     setRegisterAuth((prev) => ({ ...prev, [name]: value }))
   }
+
 
   return {
-    auth,
-    handleChange,
-    errors,
-    handleSubmit,
+    loginAuth,
+    registerAuth,
+    handleLoginChange,
+    handleRegisterChange,
+    loading,
+    setLoading,
   };
+
 };
