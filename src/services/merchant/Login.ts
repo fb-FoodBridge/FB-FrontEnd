@@ -1,15 +1,12 @@
 import type { ZodLoginTypes } from "../../validations/ZodValidationsTypes";
 import { api } from "../../constants/BASE_URL";
 
-
 interface data {
   access_token: string;
   refresh_token: string;
 }
 
 export async function LoginMerchant(data: ZodLoginTypes) {
-
-
   const response = await fetch(`${api}/merchant/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -21,15 +18,25 @@ export async function LoginMerchant(data: ZodLoginTypes) {
     .then(async (data) => {
       const json: data = await data.json();
       if (data.status === 400) {
-        return Promise.reject({ success: false, error: "Email ou senha inválido" });
+        return Promise.reject({
+          success: false,
+          error: "Email ou senha inválido",
+        });
       }
       if (data.status === 401) {
-        return Promise.reject({ success: false, error: "Email ou senha inválido" });
+        return Promise.reject({
+          success: false,
+          error: "Email ou senha inválido",
+        });
       }
-      const token = await json.access_token
-      localStorage.setItem("token", token)
+      const token = await json.access_token;
+      localStorage.setItem("token", token);
 
-      return { success: true, message: "Login realizado com sucesso.", data: json };
+      return {
+        success: true,
+        message: "Login realizado com sucesso.",
+        data: json,
+      };
     })
     .catch((error) => {
       if (error && typeof error === "object" && "error" in error) {
@@ -38,5 +45,5 @@ export async function LoginMerchant(data: ZodLoginTypes) {
       return { success: false, error: "Erro desconhecido." };
     });
 
-  return response
+  return response;
 }

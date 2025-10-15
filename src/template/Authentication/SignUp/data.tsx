@@ -1,4 +1,4 @@
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { illustrationCooking } from "../../../assets/images";
 import { useAuth } from "../../../hooks/useAuth";
@@ -6,6 +6,8 @@ import type { AuthenticationDesignProps } from "../../../interfaces/template/Aut
 import { useState } from "react";
 import { handleCallApi } from "../../../services/merchant/handleCallApi";
 import { CreateMerchant } from "../../../services/merchant/Create";
+import { LoginMerchant } from "../../../services/merchant/Login";
+
 interface data<T = unknown> {
   success: boolean;
   message?: string;
@@ -20,7 +22,7 @@ export function SignUpData(): AuthenticationDesignProps {
   );
   const { registerAuth, handleRegisterChange, setLoading, loading } = useAuth();
 
-  // const router = useNavigate();
+  const router = useNavigate();
 
   async function handleRegister(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -36,7 +38,8 @@ export function SignUpData(): AuthenticationDesignProps {
       return;
     }
     toast.success(result.message);
-
+      await handleCallApi(LoginMerchant,registerAuth)
+    router('/')
   }
 
   return {

@@ -28,23 +28,21 @@ export async function CreateMerchant(data: ZodRegisterTypes) {
     }),
   })
     .then(async (res) => {
-      const json:zodData = await res.json();
+      const json: zodData = await res.json();
       if (res.status === 401) {
         return Promise.reject({ success: false, error: "CNPJ inválido" });
       }
 
       if (res.status === 400) {
-             console.log("teste2:", json);
         return Promise.reject({ success: false, error: json.message });
       }
       if (res.status === 409) {
-   
         if (json.message === "Email already exists") {
           return Promise.reject({ success: false, error: "Email já existe" });
-        }else if(json.message === "CNPJ already exists") {
+        } else if (json.message === "CNPJ already exists") {
           return Promise.reject({ success: false, error: "CNPJ já existe" });
-        }else {
-            return Promise.reject({ success: false, error: json.message });
+        } else {
+          return Promise.reject({ success: false, error: json.message });
         }
       }
 
