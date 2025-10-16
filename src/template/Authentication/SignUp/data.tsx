@@ -115,7 +115,7 @@ export function SignUpData(): AuthenticationDesignProps {
           value: registerAuth.cnpj,
         },
       ],
-      buttonText: loading ? "Carregando..." : "Entrar",
+      buttonText: loading ? "Carregando..." : "Cadastrar",
     },
     bannerData: {
       author: "Michael, Dono do Fogo no Teto",
