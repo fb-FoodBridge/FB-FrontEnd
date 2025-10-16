@@ -2,7 +2,7 @@
 import { illustrationCooking } from "../../../assets/images";
 import { useAuth } from "../../../hooks/useAuth";
 import type { AuthenticationDesignProps } from "../../../interfaces/template/Authentication";
-import { handleCallApi } from "../../../services/merchant/handleCallApi";
+import { handleCallApi } from "../../../services/handleCallApi";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { LoginMerchant } from "../../../services/merchant/Login";

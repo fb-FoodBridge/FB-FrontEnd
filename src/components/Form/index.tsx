@@ -28,6 +28,12 @@ export default function Form({ ...props }: FormProps) {
       <Button className="mt-4 text-[16px]" size={"lg"}  variant={"default"}>
         {props.buttonText}
       </Button>
+
+      {
+        props.inputSelectedRole && (
+          <Input
+        )
+      }
     </form>
   );
 }

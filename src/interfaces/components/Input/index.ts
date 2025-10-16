@@ -15,4 +15,5 @@ export interface FormProps {
   errorZod?: {
     [key: string]: string;
   }
+  inputSelectedRole: boolean
 }
