@@ -1,14 +1,20 @@
-import {
-  X,
-} from "lucide-react";
+import { X } from "lucide-react";
 import { Button } from "../ui/button";
 import { linkUnderlineAnimation } from "../../constants";
 import { navData } from "./data";
 import type { MenuHamburguerCloseProps } from "../../interfaces/components/MenuHamburguer";
+import { Link } from "react-router-dom";
+
 
 export default function MenuHamburguer({ onClose }: MenuHamburguerCloseProps) {
+
+  
+
+
   return (
-    <div className="lg:hidden flex flex-col items-center p-4 h-screen w-full fixed bg-[#212121] overflow-auto top-0 left-0 z-50">
+    <div
+      className={`lg:hidden flex flex-col items-center p-4 h-screen w-full fixed bg-[#212121] overflow-auto top-0 left-0 z-50`}
+    >
       <div className="flex items-center justify-between w-full">
         <h2 className="font-nourd-bold text-white font-bold text-2xl">
           FOOD<span className="text-[#FDD835]">BRIDGE</span>
@@ -25,14 +31,23 @@ export default function MenuHamburguer({ onClose }: MenuHamburguerCloseProps) {
           <h5 className="font-semibold text-white text-[24px] inter text-center">
             Novo por aqui? <span className="text-[#FDD835]">Começe agora</span>!
           </h5>
+          
           <div className="flex flex-col items-center gap-4 w-full">
             <Button variant={"default"} size={"full"}>
-              Login
+              <Link
+                to="/sign-in"
+                className="text-white inter font-medium text-[20px] hover:underline w-full"
+              >
+                Login
+              </Link>
             </Button>
             <Button variant={"secondary"} size={"full"}>
-              Cadastro
+              <Link to="/sign-up" className="text-white w-full">
+                Cadastro
+              </Link>
             </Button>
           </div>
+          
         </div>
         <nav className="flex items-start flex-col gap-16 inter text-white font-medium relative text-[20px] w-fit">
           {navData.map((item, key) => (
