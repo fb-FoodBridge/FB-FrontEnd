@@ -10,7 +10,7 @@ export const ZodRegisterSchema = z.object({
   email: z.email("Email inválido"),
   password: z
     .string()
-    .min(8, { message: "Senha com no minimo 8 caracteres" })
+    .min(8, { message: "Senha com no mínimo 8 caracteres" })
     .refine(
       (val) => /[A-Z]/.test(val),
       "A senha deve conter pelo menos uma letra maiúscula"
