@@ -1,13 +1,13 @@
 import { z } from "zod";
 
 export const ZodLoginSchema = z.object({
-  email: z.email("Email invalido"),
+  email: z.email("Email inválido"),
   password: z.string(),
 });
 
 export const ZodRegisterSchema = z.object({
   username: z.string(),
-  email: z.email("Email invalido"),
+  email: z.email("Email inválido"),
   password: z
     .string()
     .min(8, { message: "Senha com no minimo 8 caracteres" })
