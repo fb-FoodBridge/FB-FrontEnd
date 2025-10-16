@@ -1,4 +1,4 @@
-import type { FormEvent } from "react";
+import type { FormEvent, ReactNode } from "react";
 
 export interface FormProps {
   fields: {
@@ -15,4 +15,8 @@ export interface FormProps {
   errorZod?: {
     [key: string]: string;
   }
+  selectOptions?:boolean;
+  onchangeSelect?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  valueSelect?: string;
+
 }

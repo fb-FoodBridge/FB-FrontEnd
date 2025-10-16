@@ -3,10 +3,12 @@ import { toast } from "react-toastify";
 import { illustrationCooking } from "../../../assets/images";
 import { useAuth } from "../../../hooks/useAuth";
 import type { AuthenticationDesignProps } from "../../../interfaces/template/Authentication";
-import { useState } from "react";
-import { handleCallApi } from "../../../services/merchant/handleCallApi";
+import { useEffect, useState } from "react";
+import { handleCallApi } from "../../../services/handleCallApi";
 import { CreateMerchant } from "../../../services/merchant/Create";
 import { LoginMerchant } from "../../../services/merchant/Login";
+import { LoginNGO } from "../../../services/ngo/Login";
+import { CreateNGO } from "../../../services/ngo/Create";
 
 interface data<T = unknown> {
   success: boolean;
@@ -17,6 +19,10 @@ interface data<T = unknown> {
 }
 
 export function SignUpData(): AuthenticationDesignProps {
+  const [selectOptions, setSelectOptions] = useState<string | undefined>(undefined);
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectOptions(e.target.value);
+  }
   const [error, setError] = useState<{ [key: string]: string } | undefined>(
     undefined
   );
@@ -24,26 +30,55 @@ export function SignUpData(): AuthenticationDesignProps {
 
   const router = useNavigate();
 
+
   async function handleRegister(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setLoading(true);
-    const result: data = await handleCallApi(CreateMerchant,registerAuth);
-    setLoading(false);
-    if (!result.success && (result.fields || result.error)) {
-      if (typeof result.error === "string") {
-        return toast.error(result.error);
-      } else {
-        setError(result.fields);
-      }
-      return;
+    if (selectOptions === '' || !selectOptions ){
+      toast.error('Selecione uma opção de usuário');
+      return; 
     }
-    toast.success(result.message);
-      await handleCallApi(LoginMerchant,registerAuth)
-    router('/')
+    setLoading(true);
+    try {
+      if (selectOptions === "Comerciante") {
+        const result: data = await handleCallApi(CreateMerchant, registerAuth);
+        setLoading(false);
+        if (!result.success && (result.fields || result.error)) {
+          if (typeof result.error === "string") {
+            return toast.error(result.error);
+          } else {
+            setError(result.fields);
+          }
+          return;
+        }
+        toast.success(result.message);
+        await handleCallApi(LoginMerchant, registerAuth);
+        router('/');
+      } else if (selectOptions === "Instituição") {
+        const result: data = await handleCallApi(CreateNGO, registerAuth);
+        setLoading(false);
+        if (!result.success && (result.fields || result.error)) {
+          if (typeof result.error === "string") {
+            return toast.error(result.error);
+          } else {
+            setError(result.fields);
+          }
+          return;
+        }
+        toast.success(result.message);
+        await handleCallApi(LoginNGO, registerAuth);
+        router('/');
+      }
+    } catch (error) {
+      setLoading(false);
+      toast.error('Erro ao criar conta, tente novamente mais tarde');
+    }
   }
 
   return {
     formData: {
+      selectOptions: true,
+      onchangeSelect: handleSelectChange,
+      valueSelect: selectOptions,
       errorZod: error,
       onSubmit: handleRegister,
       fields: [
@@ -80,7 +115,7 @@ export function SignUpData(): AuthenticationDesignProps {
           value: registerAuth.cnpj,
         },
       ],
-      buttonText:loading ? "Carregando..." : "Entrar",
+      buttonText: loading ? "Carregando..." : "Entrar",
     },
     bannerData: {
       author: "Michael, Dono do Fogo no Teto",
@@ -90,3 +125,4 @@ export function SignUpData(): AuthenticationDesignProps {
     },
   };
 }
+
