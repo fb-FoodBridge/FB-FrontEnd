@@ -6,6 +6,7 @@ import { handleCallApi } from "../../../services/merchant/handleCallApi";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { LoginMerchant } from "../../../services/merchant/Login";
+import { LoginNGO } from "../../../services/ngo/Login";
 
 interface data<T = unknown> {
   success: boolean;
@@ -24,19 +25,38 @@ export function SignInData(): AuthenticationDesignProps {
   async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
+    try{
     const result: data = await handleCallApi(LoginMerchant,loginAuth);
-    setLoading(false);
+
     if (!result.success && (result.fields || result.error)) {
-    
       if (typeof result.error === "string") {
         toast.error(result.error);
-      } else if (result.error) {
-        toast.error("An unknown error occurred.");
       }
       return;
     }    
   toast.success(result.message);
   router('/')
+    }catch(error){
+       console.warn( error);
+       try{
+    const result: data = await handleCallApi(LoginNGO ,loginAuth);
+
+    if (!result.success && (result.fields || result.error)) {
+    
+      if (typeof result.error === "string") {
+        toast.error(result.error);
+      }
+      return;
+    }    
+  toast.success(result.message);
+  router('/')
+    }catch(error){
+       console.warn("Primeira tentativa falhou:", error);
+    }
+    //finally vai sempre ser executado mesmo se der erro
+    }finally{
+      setLoading(false);
+    }
   }
   return {
     formData: {
