@@ -53,7 +53,7 @@ export function SignInData(): AuthenticationDesignProps {
     }catch(error){
       console.warn(error)
     }
-    //finally vai sempre ser executado mesmo se der erro
+    // finally will always be executed even if an error occurs
     }finally{
       setLoading(false);
     }
