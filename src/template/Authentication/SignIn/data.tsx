@@ -51,7 +51,7 @@ export function SignInData(): AuthenticationDesignProps {
   toast.success(result.message);
   router('/')
     }catch(error){
-       console.warn("Primeira tentativa falhou:", error);
+      console.warn(error)
     }
     //finally vai sempre ser executado mesmo se der erro
     }finally{

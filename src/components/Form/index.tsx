@@ -22,18 +22,25 @@ export default function Form({ ...props }: FormProps) {
               <p className="text-red-500 text-sm">{props.errorZod[field.name]}</p>
             )
           }
+
+          
         </div>
       ))}
 
-      <Button className="mt-4 text-[16px]" size={"lg"}  variant={"default"}>
+      {
+            props.selectOptions && (
+              <select onChange={props.onchangeSelect} value={props.valueSelect} className="w-[300px] border border-[#3D3D3D] rounded-md p-2 mt-4">
+                <option value={''}  disabled selected>Selecione uma opção</option>
+                <option value={'Instituição'}>Instituição</option>
+                <option value={'Comerciante'}>Comerciante</option>
+              </select>
+            )
+          }
+
+      <Button className="mt-4 text-[16px]" size={"lg"} variant={"default"}>
         {props.buttonText}
       </Button>
 
-      {
-        props.inputSelectedRole && (
-          <Input
-        )
-      }
     </form>
   );
 }

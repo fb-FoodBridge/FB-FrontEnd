@@ -15,5 +15,8 @@ export interface FormProps {
   errorZod?: {
     [key: string]: string;
   }
-  inputSelectedRole: boolean
+  selectOptions?:boolean;
+  onchangeSelect?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  valueSelect?: string;
+
 }
