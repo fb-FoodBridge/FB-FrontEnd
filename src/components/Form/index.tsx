@@ -1,3 +1,4 @@
+
 import type { FormProps } from "../../interfaces/components/Input";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -11,8 +12,9 @@ export default function Form({ ...props }: FormProps) {
           <Input
             type={field.type}
             placeholder={field.placeholder}
+            name={field.name}
             value={field.value}
-            isMessageField={field.isMessageField}
+            isMessageField={field.isMessageField ? true : false}
             onChange={field.onChange}
           />
           {
@@ -20,12 +22,25 @@ export default function Form({ ...props }: FormProps) {
               <p className="text-red-500 text-sm">{props.errorZod[field.name]}</p>
             )
           }
+
+          
         </div>
       ))}
 
-      <Button className="mt-4 text-[16px]" size={"lg"}  variant={"default"}>
+      {
+            props.selectOptions && (
+              <select onChange={props.onchangeSelect} value={props.valueSelect} className="w-[300px] border border-[#3D3D3D] rounded-md p-2 mt-4">
+                <option value={''} disabled>Selecione uma opção</option>
+                <option value={'Instituição'}>Instituição</option>
+                <option value={'Comerciante'}>Comerciante</option>
+              </select>
+            )
+          }
+
+      <Button className="mt-4 text-[16px]" size={"lg"} variant={"default"}>
         {props.buttonText}
       </Button>
+
     </form>
   );
 }

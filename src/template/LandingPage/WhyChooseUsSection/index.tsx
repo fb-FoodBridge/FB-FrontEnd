@@ -1,6 +1,7 @@
-import { Building2, ChefHat } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "../../../components/ui/button";
 import { illustrationWhyChooseUs } from "../../../assets/images";
+import { Link } from "react-router-dom";
 
 export default function WhyChooseUsSection() {
   return (
@@ -11,7 +12,7 @@ export default function WhyChooseUsSection() {
         alt="Ilustração da seção 'Porque nos escolher?' que mostra ajudando um ao outro com alimento, que é o nosso objetivo"
       />
       <div className="flex flex-col gap-10 lg:gap-16">
-        <h2 className="font-bold text-5xl">Porque nos escolher?</h2>
+        <h2 className="font-bold text-5xl">Por que nos escolher?</h2>
         <p>
           A FoodBridge conecta quem tem alimentos excedentes a quem precisa,
           tornando a doação rápida, segura e eficiente. Com geolocalização,
@@ -26,14 +27,9 @@ export default function WhyChooseUsSection() {
             size={"fit"}
             className="w-full lg:w-fit lg:h-fit"
           >
-            Restaurantes <ChefHat size={16} fill="#fff" color="#000" />
-          </Button>
-          <Button
-            variant={"secondary"}
-            size={"fit"}
-            className="w-full lg:w-fit lg:h-fit"
-          >
-            Organizações <Building2 size={16} fill="#fff" color="#000" />
+            <Link to="/sign-up" className="flex items-center gap-2">
+              Começe agora! <ArrowRight size={24} color="#fff" />
+            </Link>
           </Button>
         </div>
       </div>

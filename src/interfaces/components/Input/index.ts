@@ -15,4 +15,8 @@ export interface FormProps {
   errorZod?: {
     [key: string]: string;
   }
+  selectOptions?:boolean;
+  onchangeSelect?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  valueSelect?: string;
+
 }
