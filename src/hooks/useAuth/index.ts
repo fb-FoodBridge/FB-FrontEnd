@@ -1,8 +1,6 @@
 import { useState } from "react";
 import type { AuthType, RegisterType } from "../../lib/zod/useAuth";
 export const useAuth = () => {
-  
- const [loginAuth, setLoginAuth] = useState<AuthType>({ email: "", password: "" });
 
 const [registerAuth, setRegisterAuth] = useState<RegisterType>({
   email: "",
@@ -13,10 +11,6 @@ const [registerAuth, setRegisterAuth] = useState<RegisterType>({
 
     const [loading, setLoading] = useState(false);
 
-  function handleLoginChange(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    const { name, value } = e.target;
-    setLoginAuth((prev) => ({ ...prev, [name]: value })) 
-  }
 
   function handleRegisterChange(e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target;
@@ -25,9 +19,9 @@ const [registerAuth, setRegisterAuth] = useState<RegisterType>({
 
 
   return {
-    loginAuth,
+
     registerAuth,
-    handleLoginChange,
+
     handleRegisterChange,
     loading,
     setLoading,

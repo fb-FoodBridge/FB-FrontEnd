@@ -6,8 +6,7 @@ import type { AuthenticationDesignProps } from "../../../interfaces/template/Aut
 import { useState } from "react";
 import { handleCallApi } from "../../../services/handleCallApi";
 import { CreateMerchant } from "../../../services/merchant/Create";
-import { LoginMerchant } from "../../../services/merchant/Login";
-import { LoginNGO } from "../../../services/ngo/Login";
+
 import { CreateNGO } from "../../../services/ngo/Create";
 
 interface data<T = unknown> {
@@ -50,7 +49,6 @@ export function SignUpData(): AuthenticationDesignProps {
           return;
         }
         toast.success(result.message);
-        await handleCallApi(LoginMerchant, registerAuth);
         router('/');
       } else if (selectOptions === "Instituição") {
         const result: data = await handleCallApi(CreateNGO, registerAuth);
@@ -63,7 +61,6 @@ export function SignUpData(): AuthenticationDesignProps {
           return;
         }
         toast.success(result.message);
-        await handleCallApi(LoginNGO, registerAuth);
         router('/');
       }
     } catch (error) {

@@ -33,14 +33,6 @@ export default function MenuHamburguer({ onClose }: MenuHamburguerCloseProps) {
           </h5>
           
           <div className="flex flex-col items-center gap-4 w-full">
-            <Button variant={"default"} size={"full"}>
-              <Link
-                to="/sign-in"
-                className="text-white inter font-medium text-[20px] hover:underline w-full"
-              >
-                Login
-              </Link>
-            </Button>
             <Button variant={"secondary"} size={"full"}>
               <Link to="/sign-up" className="text-white w-full">
                 Cadastro

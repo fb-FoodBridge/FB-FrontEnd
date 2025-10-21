@@ -42,12 +42,6 @@ export default function Header() {
       {!isLogged ? (
         <>
           <div className="hidden lg:flex items-center gap-8">
-            <Link
-              to="/sign-in"
-              className="text-white inter font-medium text-[20px] hover:underline"
-            >
-              Login
-            </Link>
             <Button variant={"secondary"} size={"fit"}>
               <Link to="/sign-up" className="text-white">
                 Cadastro
