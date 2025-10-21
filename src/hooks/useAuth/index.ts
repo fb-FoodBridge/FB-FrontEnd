@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { AuthType, RegisterType } from "../../lib/zod/useAuth";
+import type { RegisterType } from "../../lib/zod/useAuth";
 export const useAuth = () => {
 
 const [registerAuth, setRegisterAuth] = useState<RegisterType>({
