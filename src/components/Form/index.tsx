@@ -30,7 +30,7 @@ export default function Form({ ...props }: FormProps) {
       {
             props.selectOptions && (
               <select onChange={props.onchangeSelect} value={props.valueSelect} className="w-[300px] border border-[#3D3D3D] rounded-md p-2 mt-4">
-                <option value={''} disabled>Selecione uma opção</option>
+                <option value={''} selected disabled>Selecione uma opção</option>
                 <option value={'Instituição'}>Instituição</option>
                 <option value={'Comerciante'}>Comerciante</option>
               </select>
