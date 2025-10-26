@@ -29,6 +29,12 @@ export async function LoginMerchant(data: ZodLoginTypes) {
           error: "Email ou senha inválido",
         });
       }
+      if (data.status === 404) {
+        return Promise.reject({
+          success: false,
+          error: "Email ou senha inválido",
+        });
+      }
       const token = await json.access_token;
       localStorage.setItem("token", token);
 
