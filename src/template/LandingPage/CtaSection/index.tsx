@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "../../../components/ui/button"
 
 export default function CtaSection() {
@@ -11,7 +12,9 @@ export default function CtaSection() {
         Vamos transformar sobras em esperança.
       </p>
       <Button variant={"gray"} size={"fit"} >
-        Começar agora!
+        <Link to="/sign-up" className="text-white">
+          Começar agora!
+        </Link>
       </Button>
     </section>
   );

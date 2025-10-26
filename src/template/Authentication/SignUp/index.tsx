@@ -12,17 +12,7 @@ export default function SignUp() {
           FOOD<span className="text-[#FDD835]">BRIDGE</span>
         </Link>
         <Form {...data.formData} />
-        <div className="w-full flex items-center gap-3">
-          <div className="w-[70%] h-[1px] bg-black" />
-          <p className="font-semibold text-[20px]">ou</p>
-          <div
-            className="w-[70%] h-[1px] bg-black"
-          />
-        </div>
-        <p className="text-[20px] text-center">
-          Ainda não tem uma conta?{" "}
-          <Link to={"/sign-in"} className="font-medium text-[20px] underline cursor-pointer">Faça Login</Link>
-        </p>
+
       </div>
       <Banner
         feedback={data.bannerData?.feedback ?? ""}
